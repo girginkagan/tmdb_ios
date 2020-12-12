@@ -60,6 +60,10 @@ extension HomePresenter: HomeViewOutputs {
     func endEditing(){
         view?.endEditing()
     }
+    
+    func goDetail(data: SearchResponseModelElement){
+        dependencies.router.presentDetail(data: data)
+    }
 }
 
 extension HomePresenter: HomeInteractorOutputs{

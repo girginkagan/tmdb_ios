@@ -19,6 +19,9 @@ class HomeRouterInput: NSObject {
         interactor.presenter = presenter
         
         let navController = UINavigationController(rootViewController: view)
+        navController.navigationBar.tintColor = .black
+        navController.navigationBar.topItem?.title = " "
+        
         return navController
     }
 }
@@ -28,6 +31,10 @@ class HomeRouterOutput: Routerable {
 
     init(_ view: Viewable) {
         self.view = view
+    }
+    
+    func presentDetail(data: SearchResponseModelElement){
+        DetailRouterInput().present(from: view, entryEntity: DetailEntryEntity(data: data))
     }
     
 }

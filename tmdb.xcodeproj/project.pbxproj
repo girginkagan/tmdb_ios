@@ -38,6 +38,13 @@
 		77BDC46E25852564008EA943 /* SearchResultTableViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC46D25852564008EA943 /* SearchResultTableViewSource.swift */; };
 		77BDC47125853708008EA943 /* SearchResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC47025853707008EA943 /* SearchResponseModel.swift */; };
 		77BDC475258537B4008EA943 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC474258537B4008EA943 /* SearchTableViewCell.swift */; };
+		77BDC47A25856320008EA943 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC4792585631F008EA943 /* DetailViewController.swift */; };
+		77BDC47E258563D2008EA943 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC47D258563D2008EA943 /* DetailPresenter.swift */; };
+		77BDC481258563E6008EA943 /* DetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC480258563E6008EA943 /* DetailInteractor.swift */; };
+		77BDC484258563F2008EA943 /* DetailEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC483258563F2008EA943 /* DetailEntities.swift */; };
+		77BDC487258563FB008EA943 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC486258563FB008EA943 /* DetailRouter.swift */; };
+		77BDC48A25857246008EA943 /* DetailTableViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC48925857246008EA943 /* DetailTableViewSource.swift */; };
+		77BDC48E2585731D008EA943 /* DetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BDC48D2585731D008EA943 /* DetailHeaderTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +81,13 @@
 		77BDC46D25852564008EA943 /* SearchResultTableViewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultTableViewSource.swift; sourceTree = "<group>"; };
 		77BDC47025853707008EA943 /* SearchResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponseModel.swift; sourceTree = "<group>"; };
 		77BDC474258537B4008EA943 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
+		77BDC4792585631F008EA943 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		77BDC47D258563D2008EA943 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		77BDC480258563E6008EA943 /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		77BDC483258563F2008EA943 /* DetailEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailEntities.swift; sourceTree = "<group>"; };
+		77BDC486258563FB008EA943 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
+		77BDC48925857246008EA943 /* DetailTableViewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewSource.swift; sourceTree = "<group>"; };
+		77BDC48D2585731D008EA943 /* DetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		81EB6E98A4C7BB7970411DE7 /* Pods-tmdb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tmdb.debug.xcconfig"; path = "Target Support Files/Pods-tmdb/Pods-tmdb.debug.xcconfig"; sourceTree = "<group>"; };
 		A5E6752EDFB4DF1B148B3AAB /* Pods-tmdb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tmdb.release.xcconfig"; path = "Target Support Files/Pods-tmdb/Pods-tmdb.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +165,7 @@
 		77BDC40F2584D398008EA943 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				77BDC47825856301008EA943 /* Detail */,
 				77BDC41C2584D437008EA943 /* Home */,
 			);
 			path = Screens;
@@ -173,6 +188,7 @@
 		77BDC4122584D3B9008EA943 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				77BDC48C25857300008EA943 /* Detail */,
 				77BDC4532584E6EC008EA943 /* Home */,
 				77BDC473258537A3008EA943 /* Search */,
 			);
@@ -184,6 +200,7 @@
 			children = (
 				77BDC44F2584E623008EA943 /* HomeTableViewSource.swift */,
 				77BDC46D25852564008EA943 /* SearchResultTableViewSource.swift */,
+				77BDC48925857246008EA943 /* DetailTableViewSource.swift */,
 			);
 			path = TableViewSources;
 			sourceTree = "<group>";
@@ -289,6 +306,26 @@
 				77BDC474258537B4008EA943 /* SearchTableViewCell.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		77BDC47825856301008EA943 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				77BDC4792585631F008EA943 /* DetailViewController.swift */,
+				77BDC47D258563D2008EA943 /* DetailPresenter.swift */,
+				77BDC480258563E6008EA943 /* DetailInteractor.swift */,
+				77BDC483258563F2008EA943 /* DetailEntities.swift */,
+				77BDC486258563FB008EA943 /* DetailRouter.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		77BDC48C25857300008EA943 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				77BDC48D2585731D008EA943 /* DetailHeaderTableViewCell.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		83CEF38A893CBED329668694 /* Frameworks */ = {
@@ -419,8 +456,12 @@
 				77BDC4622584EB0E008EA943 /* APIErrors.swift in Sources */,
 				77BDC4212584D46A008EA943 /* HomePresenter.swift in Sources */,
 				77BDC42A2584D543008EA943 /* HomeRouter.swift in Sources */,
+				77BDC484258563F2008EA943 /* DetailEntities.swift in Sources */,
 				77BDC4412584D6C3008EA943 /* BaseInteractor.swift in Sources */,
 				77BDC3EE2584D0A9008EA943 /* AppDelegate.swift in Sources */,
+				77BDC481258563E6008EA943 /* DetailInteractor.swift in Sources */,
+				77BDC47A25856320008EA943 /* DetailViewController.swift in Sources */,
+				77BDC487258563FB008EA943 /* DetailRouter.swift in Sources */,
 				77BDC45F2584EAFE008EA943 /* APIStatusCodes.swift in Sources */,
 				77BDC4592584E722008EA943 /* HomeTableViewCell.swift in Sources */,
 				77BDC4382584D5C1008EA943 /* Presenterable.swift in Sources */,
@@ -431,13 +472,16 @@
 				77BDC47125853708008EA943 /* SearchResponseModel.swift in Sources */,
 				77BDC46E25852564008EA943 /* SearchResultTableViewSource.swift in Sources */,
 				77BDC41E2584D45C008EA943 /* HomeViewController.swift in Sources */,
+				77BDC48E2585731D008EA943 /* DetailHeaderTableViewCell.swift in Sources */,
 				77BDC4502584E623008EA943 /* HomeTableViewSource.swift in Sources */,
 				77BDC4682584F06D008EA943 /* TitleTableViewCell.swift in Sources */,
 				77BDC44D2584DE33008EA943 /* BaseModel.swift in Sources */,
+				77BDC47E258563D2008EA943 /* DetailPresenter.swift in Sources */,
 				77BDC4442584D6E0008EA943 /* AlertUtil.swift in Sources */,
 				77BDC43E2584D6B0008EA943 /* BaseModelError.swift in Sources */,
 				77BDC44A2584D7DA008EA943 /* APIErrorGenerator.swift in Sources */,
 				77BDC4272584D535008EA943 /* HomeEntities.swift in Sources */,
+				77BDC48A25857246008EA943 /* DetailTableViewSource.swift in Sources */,
 				77BDC4652584ED34008EA943 /* DefaultUtil.swift in Sources */,
 				77BDC4242584D474008EA943 /* HomeInteractor.swift in Sources */,
 			);

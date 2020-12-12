@@ -9,7 +9,7 @@ import UIKit
 
 let baseUrlForImages = "https://image.tmdb.org/t/p/w500"
 
-func setShadow(view: UIView, width: Int, height: Int, radius: CGFloat){
+func setShadow(view: UIView, width: Int, height: Int, radius: CGFloat, shadowRadius: CGFloat){
     let shadowRect = CGRect(x: 1, y: 1, width: width, height: height)
     
     view.layer.masksToBounds = false
@@ -17,7 +17,7 @@ func setShadow(view: UIView, width: Int, height: Int, radius: CGFloat){
         UIBezierPath(roundedRect: shadowRect,
                      cornerRadius: CGFloat(radius)).cgPath
     view.layer.shadowColor = UIColor.black.cgColor
-    view.layer.shadowRadius = 7
+    view.layer.shadowRadius = shadowRadius
     view.layer.shadowOffset = .zero
     view.layer.shadowOpacity = 0.17
 }

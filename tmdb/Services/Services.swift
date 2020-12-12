@@ -33,7 +33,6 @@ class Services{
     
     //MARK: getSearchData
     public func getSearchData(q: String, page: String, successCompletion: @escaping ((_ json : BaseModel<SearchResponseModel>) -> Void), errorCompletion: @escaping ((_ message : BaseModelError) -> Void)){
-        print("searched")
         Alamofire.request((baseUrl + "search/multi?api_key=e5cd138a4e58ac39dd26816e2b21fdea&query=" + q + "&page=" + page).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "", method: .get, parameters: nil).responseObject { (response : DataResponse<BaseModel<SearchResponseModel>>) in
             switch response.result {
             case .success(let json):

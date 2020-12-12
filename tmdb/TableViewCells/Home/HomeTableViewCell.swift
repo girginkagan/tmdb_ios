@@ -36,7 +36,7 @@ final class HomeTableViewCell: UITableViewCell {
         viewInfoContainer.backgroundColor = .white
         viewInfoContainer.layer.cornerRadius = 8
         viewInfoContainer.translatesAutoresizingMaskIntoConstraints = false
-        setShadow(view: viewInfoContainer, width: Int(UIScreen.main.bounds.width) - 42, height: 150, radius: 8)
+        setShadow(view: viewInfoContainer, width: Int(UIScreen.main.bounds.width) - 42, height: 150, radius: 8, shadowRadius: 7)
         
         //MARK: ivItem init
         ivItem.layer.cornerRadius = 8
@@ -80,7 +80,7 @@ final class HomeTableViewCell: UITableViewCell {
         ])
     }
     
-    func updateCell(data: MostPopularMoviesResponseModelElement?){
+    func updateCell(data: SearchResponseModelElement?){
         ivItem.kf.setImage(with: URL(string: baseUrlForImages + (data?.posterPath ?? "")), placeholder: UIImage(named: "ic_movie_placeholder"))
         lblTitle.text = data?.title
         lblOverview.text = data?.overview

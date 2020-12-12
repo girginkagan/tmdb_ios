@@ -36,7 +36,7 @@ final class SearchTableViewCell: UITableViewCell {
         viewInfoContainer.backgroundColor = .white
         viewInfoContainer.layer.cornerRadius = 8
         viewInfoContainer.translatesAutoresizingMaskIntoConstraints = false
-        setShadow(view: viewInfoContainer, width: Int(UIScreen.main.bounds.width) - 42, height: 150, radius: 8)
+        setShadow(view: viewInfoContainer, width: Int(UIScreen.main.bounds.width) - 42, height: 150, radius: 8, shadowRadius: 7)
         
         //MARK: ivItem init
         ivItem.layer.cornerRadius = 8

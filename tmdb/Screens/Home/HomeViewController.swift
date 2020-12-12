@@ -117,7 +117,7 @@ extension HomeViewController: HomeViewInputs{
         navigationItem.titleView = searchBar
         
         //MARK: tableView init
-        tableView.backgroundColor = .clear
+        tableView.backgroundColor = UIColor(red: CGFloat(248/255.0), green: CGFloat(248/255.0), blue: CGFloat(248/255.0), alpha: 1.0)
         tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: "TitleTableViewCell")
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "HomeTableViewCell")
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
@@ -163,7 +163,7 @@ extension HomeViewController: HomeViewInputs{
         }.disposed(by: _disposeBag)
         
         //MARK: tvSearchResult init
-        tvSearchResult.backgroundColor = .clear
+        tvSearchResult.backgroundColor = UIColor(red: CGFloat(248/255.0), green: CGFloat(248/255.0), blue: CGFloat(248/255.0), alpha: 1.0)
         tvSearchResult.register(SearchTableViewCell.self, forCellReuseIdentifier: "SearchTableViewCell")
         tvSearchResult.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         tvSearchResult.separatorStyle = .none

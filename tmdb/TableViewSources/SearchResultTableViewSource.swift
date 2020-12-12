@@ -54,4 +54,20 @@ final class SearchResultTableViewSource: NSObject, UITableViewDataSource, UITabl
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var itemSelected: SearchResponseModelElement?
+        
+        switch entities.selectedSearchSegment {
+        case .movie:
+            itemSelected = entities.resultSearchMovies?[indexPath.row]
+        case .person:
+            itemSelected = entities.resultSearchPeople?[indexPath.row]
+        case .tv:
+            itemSelected = entities.resultSearchTVs?[indexPath.row]
+        }
+        if let item = itemSelected{
+            presenter.goDetail(data: item)
+        }
+    }
 }
