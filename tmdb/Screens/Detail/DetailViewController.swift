@@ -9,6 +9,7 @@ import UIKit
 
 protocol DetailViewInputs: AnyObject {
     func prepareUI()
+    func onError(err: BaseModelError)
     func onTableViewReady(source: DetailTableViewSource?)
 }
 
@@ -33,6 +34,7 @@ final class DetailViewController: UIViewController{
         super.viewDidLoad()
         
         presenter?.viewDidLoad()
+        navigationItem.title = " "
     }
     
     func setNavigationBarAppearance(appeared: Bool){
@@ -48,6 +50,10 @@ final class DetailViewController: UIViewController{
 }
 
 extension DetailViewController: DetailViewInputs{
+    func onError(err: BaseModelError) {
+        AlertUtil.showStandardAlert(parentController: self, title: "Error", message: APIErrorGenerator().generateError(error: err))
+    }
+    
     func onTableViewReady(source: DetailTableViewSource?) {
         tableView.dataSource = source
         tableView.delegate = source
@@ -63,6 +69,12 @@ extension DetailViewController: DetailViewInputs{
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 20, right: 0)
         tableView.separatorStyle = .none
         tableView.register(DetailHeaderTableViewCell.self, forCellReuseIdentifier: "DetailHeaderTableViewCell")
+        tableView.register(TitleTableViewCell.self, forCellReuseIdentifier: "TitleTableViewCell")
+        tableView.register(DetailDescriptionTableViewCell.self, forCellReuseIdentifier: "DetailDescriptionTableViewCell")
+        tableView.register(DetailVideosTableViewCell.self, forCellReuseIdentifier: "DetailVideosTableViewCell")
+        tableView.register(DetailCastTableViewCell.self, forCellReuseIdentifier: "DetailCastTableViewCell")
+        tableView.register(DetailPersonMoviesTableViewCell.self, forCellReuseIdentifier: "DetailPersonMoviesTableViewCell")
+        tableView.register(DetailPersonTVsTableViewCell.self, forCellReuseIdentifier: "DetailPersonTVsTableViewCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(tableView)

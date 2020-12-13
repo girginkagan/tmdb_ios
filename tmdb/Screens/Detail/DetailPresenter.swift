@@ -34,14 +34,30 @@ extension DetailPresenter: DetailViewOutputs {
     
     func setUI(){
         view?.prepareUI()
-        setTableView()
+        
+        SVProgressHUD.show()
+        dependencies.interactor.getData()
     }
     
     func setTableView(){
         entities.tableViewSource = DetailTableViewSource(presenter: self, entities: entities)
         view?.onTableViewReady(source: entities.tableViewSource)
+        SVProgressHUD.dismiss()
+    }
+    
+    func goDetail(data: SearchResponseModelElement){
+        dependencies.router.presentDetail(data: data)
     }
 }
 
 extension DetailPresenter: DetailInteractorOutputs{
+    func onError(err: BaseModelError) {
+        SVProgressHUD.dismiss()
+        view?.onError(err: err)
+    }
+    
+    func onDataReady() {
+        setTableView()
+    }
+    
 }

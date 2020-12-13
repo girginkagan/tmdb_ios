@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import Cosmos
 
 final class DetailHeaderTableViewCell: UITableViewCell {
 
@@ -14,6 +15,8 @@ final class DetailHeaderTableViewCell: UITableViewCell {
     let ivCover = UIImageView()
     let viewCoverShadow = UIView()
     let lblTitle = UILabel()
+    let viewRating = CosmosView()
+    let lblKnownFor = UILabel()
     var safeAreaTopInset: CGFloat = 0
 
     override func awakeFromNib() {
@@ -56,13 +59,32 @@ final class DetailHeaderTableViewCell: UITableViewCell {
         //MARK: lblTitle init
         lblTitle.translatesAutoresizingMaskIntoConstraints = false
         lblTitle.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
-        lblTitle.numberOfLines = 2
+        lblTitle.numberOfLines = 0
         lblTitle.textAlignment = .center
+        
+        //MARK: viewRating init
+        viewRating.settings.filledColor = .orange
+        viewRating.settings.filledBorderColor = .orange
+        viewRating.settings.emptyBorderColor = .orange
+        viewRating.settings.emptyBorderWidth = 1.5
+        viewRating.settings.starSize = 25
+        viewRating.settings.totalStars = 5
+        viewRating.settings.fillMode = .precise
+        viewRating.translatesAutoresizingMaskIntoConstraints = false
+        viewRating.isUserInteractionEnabled = false
+        
+        //MARK: lblKnownFor init
+        lblKnownFor.translatesAutoresizingMaskIntoConstraints = false
+        lblKnownFor.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        lblKnownFor.numberOfLines = 0
+        lblKnownFor.textAlignment = .center
 
         contentView.addSubview(ivBg)
         contentView.addSubview(viewCoverShadow)
         contentView.addSubview(ivCover)
         contentView.addSubview(lblTitle)
+        contentView.addSubview(viewRating)
+        contentView.addSubview(lblKnownFor)
         
         //MARK: set constraints
         NSLayoutConstraint.activate([
@@ -70,6 +92,7 @@ final class DetailHeaderTableViewCell: UITableViewCell {
             ivBg.trailing.constraint(equalTo: contentView.trailing),
             ivBg.top.constraint(equalTo: contentView.top),
             ivBg.bottom.constraint(equalTo: contentView.bottom),
+            ivBg.height.constraint(equalToConstant: safeAreaTopInset + 415),
             ivCover.top.constraint(equalTo: contentView.top, constant: safeAreaTopInset + 60),
             ivCover.centerX.constraint(equalTo: contentView.centerX),
             ivCover.width.constraint(equalToConstant: 160),
@@ -81,6 +104,11 @@ final class DetailHeaderTableViewCell: UITableViewCell {
             lblTitle.leading.constraint(equalTo: contentView.leading, constant: 20),
             lblTitle.trailing.constraint(equalTo: contentView.trailing, constant: -20),
             lblTitle.top.constraint(equalTo: ivCover.bottom, constant: 20),
+            viewRating.centerX.constraint(equalTo: contentView.centerX),
+            viewRating.top.constraint(equalTo: lblTitle.bottom, constant: 10),
+            lblKnownFor.leading.constraint(equalTo: contentView.leading, constant: 20),
+            lblKnownFor.trailing.constraint(equalTo: contentView.trailing, constant: -20),
+            lblKnownFor.top.constraint(equalTo: lblTitle.bottom, constant: 5)
         ])
     }
     
@@ -94,5 +122,17 @@ final class DetailHeaderTableViewCell: UITableViewCell {
         else{
             lblTitle.text = data?.title
         }
+        
+        if (data?.mediaType ?? MediaType.movie) == MediaType.person{
+            viewRating.isHidden = true
+            lblKnownFor.isHidden = false
+            lblKnownFor.text = data?.knownForDepartment
+        }
+        else{
+            viewRating.isHidden = false
+            lblKnownFor.isHidden = true
+            viewRating.rating = 5 - (10 / (data?.voteAverage ?? 0.0))
+        }
+        
     }
 }

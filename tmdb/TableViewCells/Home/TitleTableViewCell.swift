@@ -38,9 +38,9 @@ final class TitleTableViewCell: UITableViewCell {
         //MARK: set constraints
         NSLayoutConstraint.activate([
             lblTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            lblTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20),
-            lblTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-            lblTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 10)
+            lblTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            lblTitle.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            lblTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
     

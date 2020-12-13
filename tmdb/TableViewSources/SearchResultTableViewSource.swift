@@ -30,6 +30,7 @@ final class SearchResultTableViewSource: NSObject, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
+        cell.selectionStyle = .none
         switch entities.selectedSearchSegment {
         case .movie:
             cell.updateCell(data: entities.resultSearchMovies?[indexPath.row])

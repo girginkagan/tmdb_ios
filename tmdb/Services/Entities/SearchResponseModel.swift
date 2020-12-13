@@ -13,7 +13,7 @@ public struct SearchResponseModelElement: Codable {
     public let firstAirDate: String?
     public let genreIDS: [Int]?
     public let id: Int?
-    public let mediaType: MediaType?
+    public var mediaType: MediaType?
     public let name: String?
     public let originCountry: [String]?
     public let originalLanguage: String?

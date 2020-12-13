@@ -32,12 +32,14 @@ final class HomeTableViewSource: NSObject, UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "TitleTableViewCell", for: indexPath) as! TitleTableViewCell
+            cell.selectionStyle = .none
             cell.updateCell(title: "Most Populars")
             
             return cell
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as! HomeTableViewCell
+            cell.selectionStyle = .none
             cell.updateCell(data: entities.resultMostPopulars?[indexPath.row])
             
             return cell
@@ -45,10 +47,7 @@ final class HomeTableViewSource: NSObject, UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0{
-            return 70
-        }
-        return 196
+        return UITableView.automaticDimension
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

@@ -33,4 +33,8 @@ class DetailRouterOutput: Routerable {
         self.view = view
     }
     
+    func presentDetail(data: SearchResponseModelElement){
+        DetailRouterInput().present(from: view, entryEntity: DetailEntryEntity(data: data))
+    }
+    
 }

@@ -13,9 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        SVProgressHUD.setDefaultMaskType(.black)
-        SVProgressHUD.setForegroundColor(.white)
-        SVProgressHUD.setBackgroundColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.1))
+        SVProgressHUD.setForegroundColor(.black)
+        SVProgressHUD.setBackgroundColor(UIColor(red: 0, green: 0, blue: 0, alpha: 0.2))
         
         window = UIWindow(frame:UIScreen.main.bounds)
         window?.rootViewController = HomeRouterInput().view(entryEntity: HomeEntryEntity())
